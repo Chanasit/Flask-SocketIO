@@ -14,19 +14,25 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js" integrity="sha256-yr4fRk/GU1ehYJPAs8P4JlTgu0Hdsp4ZKrx8bDEDC3I=" crossorigin="anonymous"></script>
 <script type="text/javascript" charset="utf-8">
 
-    var ws0 = io('ws://localhost:8000/test');
+    var ws0 = io('ws://localhost:8000/text');
 
     ws0.on('connect', function() {
 
-        // for (let index = 0; index < 10; index++) {
-        //     ws0.emit('my event', {data: 'I\'m connected!'});
-        // }
+        for (let index = 0; index < 10; index++) {
+            ws0.emit('my event', {data: 'I\'m connected!'});
+        }
+
+
+        for (let index = 0; index < 10; index++) {
+            ws0.emit('json', {data: 'I\'m connected!'});
+        }
 
         ws0.on('message', function (data) { 
             console.log(data)
         });
 
     });
+
 
 </script>
 </html>
