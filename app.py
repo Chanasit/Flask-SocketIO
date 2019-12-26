@@ -9,6 +9,7 @@ socketio = SocketIO(app)
 def handle_message(message):
     print('received message: ' + message)
 
+
 @socketio.on('json')
 def handle_json(json):
     print('received json: ' + str(json))
@@ -22,7 +23,6 @@ def handle_my_custom_event(json):
 @socketio.on('my event', namespace='/test')
 def handle_my_custom_namespace_event(json):
     print('received json: ' + str(json))
-
 
 @app.route('/')
 def home():
