@@ -13,16 +13,15 @@ def handle_message(message):
 def handle_json(json):
     print('received json: ' + str(json))
 
+
 @socketio.on('my event')
 def handle_my_custom_event(json):
     print('received json: ' + str(json))
 
 
-
 @socketio.on('my event', namespace='/test')
 def handle_my_custom_namespace_event(json):
     print('received json: ' + str(json))
-
 
 
 @app.route('/')
